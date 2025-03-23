@@ -1,0 +1,29 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	background-color: #000;
+}
+
+nav {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 20px;
+	font-size: larger;
+}
+
+a {
+	color: #fff;
+}
+
+main {
+	text-align: center;
+	color: #fff;
+	margin-top: 150px;
+}
+
+footer {
+	text-align: center;
+	padding: 50px 0;
+	color: #fff;
+}
