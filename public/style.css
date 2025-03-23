@@ -1,0 +1,42 @@
+@font-face 
+{
+	font-family: 'MrRobot';
+	font-style: normal;
+	font-weight: normal;
+	src: local('MrRobot'), url('fonts/mrrobot.woff') format('woff');
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+._404_wrapper {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	background-color: #0E0E0E;
+}
+
+._404_title {
+	position: absolute;
+	left: 50%;
+	top: 10%;
+	transform: translateX(-50%);
+	z-index: 999;
+	font-family: 'MrRobot';
+	color: #E0292B;
+	font-size: 128px;
+	font-weight: 400;
+}
+
+._404_image {
+	display: block;
+	width: 50%;
+	height: 50%;
+	position: absolute;
+	left: 50%;
+	top: 60%;
+	transform: translate(-50%, -50%);
+	object-fit: cover;
+}
