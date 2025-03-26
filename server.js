@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const hbs = require('express-handlebars');
+const multer = require('multer');
 
 const app = express();
 app.engine('hbs', hbs({ extname: 'hbs', layoutsDir: './views/layouts', defaultLayout: 'main' }));
@@ -11,6 +12,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
 
 app.use(express.json());
+
+const upload = multer({
+  storage: multer.memoryStorage(),
+});
 
 app.get(['/', '/home'], (req, res) => {
   res.render('home'); 
@@ -40,12 +45,13 @@ app.get('/image', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'images', 'image.png'));
 });
 
-app.post('/contact/send-message', (req, res) => {
+app.post('/contact/send-message', upload.single('projectDesign'), (req, res) => {
 
   const { author, sender, title, message } = req.body;
 
-  if(author && sender && title && message) {
-    res.render('contact', { isSent: true });
+  if (author && sender && title && message && req.file) {
+    const fileName = req.file.originalname;
+    res.render('contact', { isSent: true, fileName });
   } else {
     res.render('contact', { isError: true });
   }
