@@ -11,6 +11,7 @@
 		<form action="/contact/send-message" method="POST" enctype="multipart/form-data">
 			{{#if isSent}}
   			<div class="isSent">The message has been sent! File {{fileName}} has been saved!</div>
+				<img src="{{imageUrl}}" alt={{fileName}} style="max-width:200px;">
 			{{/if}}
 			{{#if isError}}
 				<div class="isError">You can\'t leave fields empty!</div>
